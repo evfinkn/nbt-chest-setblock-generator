@@ -5,3 +5,4 @@
 - [ ] Add comments to code
 - [ ] Separate Chest class into Chest and CommandGenerator
 - [ ] Retest program
+- [ ] Add example test file
