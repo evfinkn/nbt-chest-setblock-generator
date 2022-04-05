@@ -8,5 +8,5 @@
 - [ ] Separate Chest class into Chest and CommandGenerator
 - [ ] Retest program
 - [ ] Add example test file
-- [ ] Change getCommand to use String.formatted()
+- [x] Change getCommand to use String.formatted()
 

@@ -45,7 +45,6 @@ public class Chest {
                 Pattern.compile("(?<=x:)[-\\d]+(?=,)"),
                 Pattern.compile("(?<=y:)[-\\d]+(?=,)"),
                 Pattern.compile("(?<=z:)[-\\d]+(?=,)"),
-                // old items regex: (?:Items:\[)[\s\S]*?(?=,z)
                 Pattern.compile("Items:\\[[\\s\\S]*?(?=,z:[-\\d]+,id:\"minecraft:chest\")")};
         Matcher matcher;
         for (Pattern p : patterns) {
@@ -57,14 +56,7 @@ public class Chest {
     }
 
     public String getCommand() {
-        StringBuilder command = new StringBuilder("/setblock    minecraft:chest[facing=,type=]{}");
-        command.insert(44, items);
-        command.insert(42, type);
-        command.insert(36, facing);
-        command.insert(12, z);
-        command.insert(11, y);
-        command.insert(10, x);
-        return command.toString();
+        return "/setblock %d %d %d minecraft:chest[facing=%s,type=%s]{%s}".formatted(x, y, z, facing, type, items);
     }
 
     public static ArrayList<Chest> getChestsFromFile(String filePath) {
